@@ -29,7 +29,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--tr-npy-path', type=str, help="Path to the training data root directory.", required=True)
 parser.add_argument('-v', '--val-npy-path', type=str, help="Path to the validation data root directory.", required=True)
-parser.add_argument('--sam-ckpt', type=str, help="Path to the SAM checkpoint.", required=True)
+parser.add_argument('--sam-ckpt', type=str, help="Path to the SAM checkpoint.")
 parser.add_argument('--work-dir', type=str, default="finetune_point_prompt", help="Path to where the checkpoints and logs are saved.")
 parser.add_argument('--max-epochs', type=int, default=1000, help="Maximum number of epochs.")
 parser.add_argument('-bs','--batch-size', type=int, default=16, help="Batch size.")
