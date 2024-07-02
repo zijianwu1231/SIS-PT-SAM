@@ -6,7 +6,7 @@ PyTorch implementation of the SIS-PT-SAM.
 
 An in-depth paragraph about your project and overview of use. -->
 
-<img src="assets/cholecseg8k_demo_8.gif" height="200"> <img src="assets/stir_demo.gif" height="200"> <img src="assets/ucl_demo_13.gif" height="200">
+<img src="assets/cholecseg8k_demo_8.gif" height="180"> <img src="assets/stir_demo.gif" height="180"> <img src="assets/ucl_demo_13.gif" height="180">
 ## Getting Started
 ### Dependencies
 
