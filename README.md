@@ -2,12 +2,12 @@
 
 PyTorch implementation of the SIS-PT-SAM.
 
-## Description
+<!-- ## Description
 
-An in-depth paragraph about your project and overview of use.
+An in-depth paragraph about your project and overview of use. -->
 
+<img src="assets/cholecseg8k_demo_8.gif" height="200"> <img src="assets/stir_demo.gif" height="200"> <img src="assets/ucl_demo_13.gif" height="200">
 ## Getting Started
-
 ### Dependencies
 
 * Python 3.11
@@ -58,27 +58,28 @@ Please reformat each dataset according to the following top-level directory layo
     │        └──...
     └──...
 
-To run `online_demo.py`, we need to prepare the first frame and the corresponding mask of the video. If there are more than one tool to segment, please put masks of each tool into a folder. 
-
 ### Training
+
+Download checkpoints of [MobileSAM](https://github.com/ChaoningZhang/MobileSAM?tab=readme-ov-file), [CoTracker](https://github.com/facebookresearch/co-tracker?tab=readme-ov-file), and [Light HQ-SAM](https://huggingface.co/lkeab/hq-sam/resolve/main/sam_hq_vit_tiny.pth). Put them into `./ckpts` 
+
 If use single GPU for training, run:
 ```
-python train.py -i ./data/[dataset name]/train/ -v ./data/[dataset name]/val/ --sam-ckpt ./ckpt/[checkpoint file] --work-dir [path of the training results] --max-epochs 100 --data-aug --freeze-prompt-encoder --batch-size 4 --learn-rate 1e-5 --dataset [dataset]
+python train.py -i ./data/[dataset]/train/ -v ./data/[dataset]/val/ --sam-ckpt ./ckpt/mobile_sam.pt --work-dir [path of the training results] --max-epochs 100 --data-aug --freeze-prompt-encoder --batch-size 4 --learn-rate 1e-5 --dataset [dataset]
 ```
-
-If use multi GPU for training, run:
+For example:
 ```
-python train.py -i ./data/[dataset name]/train/ -v ./data/[dataset name]/val/ --sam-ckpt ./ckpt/[checkpoint file] --work-dir [path of the training results] --max-epochs 100 --data-aug --freeze-prompt-encoder --batch-size 4 --learn-rate 1e-5 --dataset [dataset] --multi-gpu
+python train.py -i /data/CholecSeg8k/train/ -v /data/CholecSeg8k/val/ --train-from-scratch --work-dir ./results/exp_cholecseg8k --max-epochs 100 --data-aug --freeze-prompt-encoder --batch-size 4 --learn-rate 1e-5 --dataset cholecseg
 ```
-
-and replace the `device_ids` in line 82 of the `train.py` as the GPU you would like to use.
+If use multi GPU for training, just add `--multi-gpu` and replace the `device_ids` in line 82 of the `train.py` as the GPU you would like to use:
 ```
 if args.multi_gpu:
     surgicaltool_sam = nn.DataParallel(surgicaltool_sam, device_ids=[0,1,2,3])
 ```
 
 ### Run Online Demo
-Use `online_demo.py` to run the online demo for a video. 
+We need to prepare the first frame and the corresponding mask of the video. If there are more than one tool to segment, please put masks of each tool into a folder. 
+
+Then use `online_demo.py` to run the online demo for a video. 
 ```
 python online_demo.py --video_path [video path] --tracker cotracker --sam_type finetune --tool_number 2 --first_frame_path [path of the first frame of the video] --first_mask_path [path of the first frame mask of the video] --mask_dir_path [folder that contains the mask of each tool in first frame] --save_demo --mode kmedoids --add_support_grid --sam-ckpt ./ckpts/[checkpoint file]
 ```
@@ -87,24 +88,9 @@ python online_demo.py --video_path [video path] --tracker cotracker --sam_type f
 
 If you have any problem using this code then create an issue in this repository or contact me at zijianwu@ece.ubc.ca
 
-<!-- ## Authors
-
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie) -->
-
-<!-- ## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release -->
-
 ## License
 
-This project is licensed under the [NAME HERE] License
+This project is licensed under the MIT License
 
 ## Acknowledgments
 
