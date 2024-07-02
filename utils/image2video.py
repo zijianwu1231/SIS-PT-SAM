@@ -22,7 +22,7 @@ if __name__ == "__main__":
     output = args.output
 
     # Get the list of all the images
-    images_list = sorted(os.listdir(path), key=lambda x: int(x.split('.')[0]))
+    images_list = sorted(os.listdir(path))#, key=lambda x: int(x.split('.')[0]))
     images = [os.path.join(path, image) for image in images_list]
 
     # Get the height and width of the first image
