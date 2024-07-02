@@ -17,8 +17,12 @@ An in-depth paragraph about your project and overview of use. -->
 * torchvision 0.16.2
 
 ### Environment Setup
+Create a Conda environment:
+```
+conda create --name sis-pt-sam python=3.11
+```
 
-Run the following command to install environment
+Activate the Conda environment and run the following command to install environment
 ```
 pip install -r requirements.txt
 ```
