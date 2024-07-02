@@ -2,6 +2,8 @@
 
 PyTorch implementation of the SIS-PT-SAM. Inference speed achieves 25+/80+ FPS on single RTX 4060/4090 GPU. Use point prompts for full fine-tuning MobileSAM.
 
+[[arXiv](https://arxiv.org/abs/2403.08003)]
+
 <!-- ## Description
 
 An in-depth paragraph about your project and overview of use. -->
