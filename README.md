@@ -1,6 +1,6 @@
 # Augmenting Efficient Surgical Instrument Segmentation in Video with Point Tracking and Segment Anything (SIS-PT-SAM)
 
-PyTorch implementation of the SIS-PT-SAM.
+PyTorch implementation of the SIS-PT-SAM. Inference speed achieves 25+/80+ FPS on single RTX 4060/4090 GPU. Use point prompts for full fine-tuning MobileSAM.
 
 <!-- ## Description
 
