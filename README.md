@@ -88,11 +88,36 @@ if args.multi_gpu:
 ```
 
 ### Run Online Demo
-We need to prepare the first frame and the corresponding mask of the video. If there are more than one tool to segment, please put masks of each tool into a folder. 
+We need to prepare the first frame and the corresponding mask of the video. If there are more than one tool to segment, please put masks of each tool into a folder. You may try this pretrained [checkpoint](https://drive.google.com/file/d/1h9qpgzPM6rcY82x8HjLojZk9UQIbpV2C/view?usp=sharing).
 
 Then use `online_demo.py` to run the online demo for a video. 
 ```
 python online_demo.py --video_path [video path] --tracker cotracker --sam_type finetune --tool_number 2 --first_frame_path [path of the first frame of the video] --first_mask_path [path of the first frame mask of the video] --mask_dir_path [folder that contains the mask of each tool in first frame] --save_demo --mode kmedoids --add_support_grid --sam-ckpt ./ckpts/[checkpoint file]
+```
+
+## Citation
+If you think this repo or paper is helpful, please consider cite 
+```
+@article{wu2025augmenting,
+  title={Augmenting efficient real-time surgical instrument segmentation in video with point tracking and Segment Anything},
+  author={Wu, Zijian and Schmidt, Adam and Kazanzides, Peter and Salcudean, Septimiu E},
+  journal={Healthcare Technology Letters},
+  volume={12},
+  number={1},
+  pages={e12111},
+  year={2025},
+  publisher={Wiley Online Library}
+}
+```
+or
+```
+@article{wu2024real,
+  title={Real-time Surgical Instrument Segmentation in Video Using Point Tracking and Segment Anything},
+  author={Wu, Zijian and Schmidt, Adam and Kazanzides, Peter and Salcudean, Septimiu E},
+  journal={arXiv e-prints},
+  pages={arXiv--2403},
+  year={2024}
+}
 ```
 
 ## Contact
